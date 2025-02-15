@@ -10,7 +10,6 @@ module.exports = {
       },
     });
 
-    // Store socket instances
     let connectedSockets = new Map();
 
     io.on("connection", (socket) => {
@@ -18,7 +17,7 @@ module.exports = {
 
       socket.on("chat message", (message) => {
         console.log("Received message:", message);
-        // Echo back the message to all clients
+
         io.emit("chat message", message);
       });
 
